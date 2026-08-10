@@ -1,0 +1,335 @@
+Javascript Problem Solving Assignment(ES6)
+Assignment 3
+English Version: ENG_V: Javascript Problem Solving Assignment(ES6)
+
+
+গুরুত্বপূর্ণ নির্দেশনা
+ফাংশনের নাম পরিবর্তন করা যাবে না। প্রতিটি প্রবলেমে যে ফাংশনের নাম দেওয়া আছে ঠিক সেটাই ব্যবহার করতে হবে — অন্য কোনো নাম বা রিনেম করা যাবে না।
+ফাংশন থেকে অবশ্যই return ব্যবহার করে ভ্যালু রিটার্ন করতে হবে। শুধু console.log() করলে হবে না — প্রয়োজনীয় ভ্যালু রিটার্ন না করলে, লজিক ঠিক থাকলেও তা সঠিক উত্তর হিসেবে গণ্য হবে না।
+সব লজিক এবং ভ্যারিয়েবল ফাংশনের ভেতরে লিখতে হবে। কোনো ভ্যারিয়েবল ফাংশনের বাইরে (গ্লোবালি) ডিক্লেয়ার করা যাবে না।
+প্রতিটি প্রবলেম ভালোভাবে পড়ে, লজিক বুঝে তারপর কোড লিখবে।
+ফাংশন থেকে ঠিক যা রিটার্ন করতে বলা হয়েছে তাই রিটার্ন করবে। অতিরিক্ত কিছু রিটার্ন করা যাবে না — লজিক ঠিক থাকলেও ভুল রিটার্ন করলে মার্ক পাবে না।
+এই ডকুমেন্টই ফাইনাল। কোনো কনফিউশন থাকলে এই ডকুমেন্ট ফলো করবে।
+চ্যাটজিপিটি সহ অন্য কোনো AI টুল বা বন্ধুর সাহায্য নেওয়া যাবে না। আমাদের AI এক্সটেনশন যদি তোমার ফাংশনকে AI-Generated হিসেবে ডিটেক্ট করে, তাহলে এসাইনমেন্টে জিরো পাবে।
+
+Hidden Test Case: তোমার সমাধান এখানে দেখানো Sample Test Case ছাড়াও আরও Hidden Test Case দিয়ে যাচাই করা হবে। 
+
+
+
+
+Problem 1 — Student Introduction Generator
+ Function Name Must be: studentIntroduction 
+একটি Online Learning Platform নতুন Student Registration-এর পরে একটি Introduction Message তৈরি করতে চায়।
+
+Input
+Function একটি Object গ্রহণ করবে।
+Example:
+{
+  name: "Rafi",
+  age: 18,
+  course: "JavaScript"
+}
+
+
+Output
+Template Literal ব্যবহার করে Return করবে—
+
+Example:
+My name is Rafi. I am 18 years old. I am learning JavaScript.
+
+
+Challenge
+Return "Invalid"
+যদি Input Object না হয়
+অথবা name, age অথবা course property না থাকে
+
+Starter Code:
+function studentIntroduction(student) {
+  // Write your code here
+}
+
+
+Sample Test Cases
+Input
+Output
+{name:"Rafi",age:18,course:"JavaScript"}
+My name is Rafi. I am 18 years old. I am learning JavaScript.
+{} 
+Invalid
+"student" 
+Invalid
+
+
+
+
+
+
+
+
+
+
+
+Problem 2 — Active User Filter
+ Function Name Must be: filterActiveUsers
+একটি Social Media Platform-এ User-দের Status Check করতে হবে।
+User List একটি Array of Object আকারে দেওয়া আছে।
+Function শুধুমাত্র isActive: true হওয়া User-দের Array Return করবে।
+
+Input
+একটি array of object যেখানে name এবং isActive property থাকবে।
+যেমনঃ
+[
+ {name:"A", isActive:true},
+ {name:"B", isActive:false}
+]
+
+
+
+Output
+শুধুমাত্র isActive: true হওয়া User-দের Array Return করবে।
+যেমনঃ
+[{name:"A", isActive:true}]
+
+
+Challenge
+Return "Invalid"
+Input Array না হলে
+Empty Array হলে
+Object-এ isActive property না থাকলে
+
+টিপস: filter() ব্যবহার করার চেষ্টা করো।
+
+Starter Code:
+function filterActiveUsers(users) {
+    // Write your code here
+}
+
+
+Sample Test Cases
+ Input
+ Output
+[{name:"A", isActive:true},{name:"B", isActive:false}]
+[{name:"A", isActive:true}]
+[]
+Invalid
+[{name:"A"}]
+Invalid
+"users"
+Invalid
+
+
+
+
+
+
+
+
+
+
+Problem 3 —Trending Hashtag Counter
+ Function Name Must be: countHashtags
+Clipzy একটি short-video app, যা Gen Z দের মধ্যে জনপ্রিয়। এটি একটি caption কতটা "trend-friendly" তা বুঝতে caption-এ থাকা hashtag গণনা করতে চায় এবং সবচেয়ে বড় hashtag খুঁজে বের করতে চায়। প্রতিটি hashtag হলো # দিয়ে শুরু হওয়া একটি word।
+তোমার কাজ হলো এমন একটি function লেখা যা caption string স্ক্যান করে বলবে সেখানে কয়টি hashtag আছে এবং সবচেয়ে বড় hashtag কোনটি (# চিহ্ন ছাড়া)।
+
+Input
+একটি string, caption, যেমনঃ "Loving this weather today #sunny #vibes #weekend"
+
+Output
+একটি Object, শেপ: { hashtagCount: Number, longestTag: String }
+hashtagCount → মোট কতগুলো word # দিয়ে শুরু হয়েছে
+
+
+Challenge
+Input String না হলে "Invalid" রিটার্ন করবে।
+longestTag → সবচেয়ে বড় hashtag-এর টেক্সট, # ছাড়া (length সমান হলে যেটা আগে আছে সেটা)
+কোনো hashtag না থাকলে longestTag হবে ""
+
+টিপস: caption-কে word এ ভাগ করার জন্য split(" ") ব্যবহার করো, তারপর প্রতিটা word startsWith("#") দিয়ে চেক করো।
+
+Starter Code:
+function countHashtags(caption) {
+    // Write your code here…
+}
+
+
+Test Cases
+ Input
+ Output
+"Loving this weather today #sunny #vibes #weekend"
+{ hashtagCount: 3, longestTag: "weekend" }
+"No hashtags here"
+{ hashtagCount: 0, longestTag: "" }
+"#ai #ml data science"
+{ hashtagCount: 2, longestTag: "ai" }
+123
+Invalid
+["#fun"]
+Invalid
+
+
+
+
+
+
+
+
+
+
+
+Problem 4 — Bonus Score Calculator
+ Function Name Must be: bonusScore
+একটি Programming Contest-এ প্রতিটি Participant-এর Score একটি Number Array আকারে দেওয়া আছে।
+
+Contest শেষে প্রত্যেক Participant-এর Score-এর সাথে ১০ Bonus Marks যোগ করা হবে। এরপর সব Updated Score যোগ করে Total Score Return করতে হবে।
+
+Input
+একটি Number Array, যেমনঃ 
+[80, 65, 90, 75]
+
+Output
+350
+
+Explanation
+Updated Scores: (প্রত্যেকের সাথে 10 যোগ করে)
+[90, 75, 100, 85]
+Total: 
+90 + 75 + 100 + 85 = 350
+
+
+Challenge
+Return "Invalid" যদি—
+Input Array না হয়।
+Array Empty হয়।
+Array-এর মধ্যে Number ছাড়া অন্য কোনো Data Type থাকে।
+
+টিপস: এই Problem সমাধান করতে map() এবং reduce() ব্যবহার করতে পারো। 
+
+Starter Code:
+function bonusScore(scores) {
+    // Write your code here
+}
+
+
+Sample Test Cases
+Input
+Output
+[80, 65, 90, 75]
+350
+[100]
+110
+[0, 10]
+30
+[]
+Invalid
+"scores"
+Invalid
+[80, "90", 70]
+Invalid
+
+
+
+
+
+
+
+
+
+
+Problem 5 — Debugging Challenge: AI Leaderboard Generator
+ Function Name Must be: generateLeaderboard
+Programming Hero-এর নতুন AI Coding Arena-তে প্রতিদিন হাজার হাজার শিক্ষার্থী Problem Solve করে।
+দিন শেষে একটি AI Leaderboard Engine Top Performer-দের তালিকা তৈরি করে।
+
+Rules খুবই সহজ—
+শুধুমাত্র যাদের Score 70 বা তার বেশি, তারা Leaderboard-এ থাকবে।
+প্রত্যেক Qualified Student-এর নাম UPPERCASE করা হবে।
+Leaderboard-এ শুধুমাত্র প্রথম ৩ জন দেখানো হবে।(যে order-এ Input এসেছে সেই order-ই থাকবে)
+
+কিন্তু সমস্যা হলো...
+একজন Junior Developer তাড়াহুড়ো করে পুরো Function লিখে ফেলেছে।
+সে ES6 Feature ব্যবহার করার চেষ্টা করেছে, কিন্তু অনেক জায়গায় ভুল করেছে।
+এখন Leaderboard ভুল Result দিচ্ছে।
+তোমার কাজ হলো সব Bug খুঁজে বের করে ঠিক করা।
+
+Input
+একটি Array of Object, যেমনঃ 
+[
+    { name: "Rafi", score: 90 },
+    { name: "Sadia", score: 65 },
+    { name: "Karim", score: 85 },
+    { name: "Nafis", score: 75 }
+]
+
+Output
+একটি Array, যেমনঃ 
+["RAFI", "KARIM", "NAFIS"] 
+
+Challenge
+Bug ঠিক করার পরে function এটাও handle করবে —
+Input Array না হলে "Invalid" 
+Empty Array হলে "Invalid" 
+কোনো Object-এ name বা score না থাকলে "Invalid" 
+score Number না হলে "Invalid" 
+
+Buggy Code:
+/* Find and fix every bug. Do not change the function name. */
+function generateLeaderboard(students) {
+    if (!Array.isArray = students) {
+        return "Invalid";
+    }
+
+    if (students.length == []) {
+        return "Invalid";
+    }
+
+    const qualified = students.filter(student => {
+        student.score > 70;
+    });
+
+    const names = qualified.map(({ name }) => {
+        name.toUpperCase();
+    });
+
+    return names.slice(0, 2);
+}
+
+
+Tips
+এই Function-এ ৮টিরও বেশি Bug আছে।
+খেয়াল করে দেখো—
+Array.isArray() সঠিকভাবে ব্যবহার করা হয়েছে কি?
+Empty Array Check ঠিক আছে কি?
+filter() Callback কি Return করছে?
+Condition অনুযায়ী Score ঠিকভাবে Filter হচ্ছে?
+map() Callback কি Return করছে?
+toUpperCase()-এর Result কি Return হচ্ছে?
+slice() ঠিক কয়টি Element নিচ্ছে?
+Validation সম্পূর্ণ করা হয়েছে কি?
+
+NB: Final Array কে Sort করতে হবে না। 
+Sample Test Cases
+ Input
+ Output
+[{name:"Rafi",score:90},{name:"Sadia",score:65},{name:"Karim",score:85},{name:"Nafis",score:75}]
+["RAFI","KARIM","NAFIS"] 
+[{name:"A",score:70},{name:"B",score:71}]
+["A","B"] 
+[]
+Invalid
+"students"
+Invalid
+[{name:"Rafi"}]
+Invalid
+[{name:"Rafi",score:"90"}]
+Invalid
+
+
+
+
+
+
+
+
+
+
+
